@@ -46,6 +46,7 @@ function initialize(){
             NUM_COLS--;
         }
         render();
+
     });
 
     // right mouse click makes more eyes appear
@@ -56,6 +57,7 @@ function initialize(){
         }
         render();
         e.preventDefault();
+
     });
 
     document.addEventListener('touchstart', e => {
@@ -63,16 +65,20 @@ function initialize(){
             x: e.touches[0].clientX,
             y: e.touches[0].clientY,
         }
+        render();
         e.preventDefault();
-    });
+
+    }, {passive: false});
 
     document.addEventListener('touchmove', e => {
         mouseLoc = {
             x: e.touches[0].clientX,
             y: e.touches[0].clientY,
         }
+        render();
         e.preventDefault();
-    });
+        
+    }, {passive: false});
 
     // start rendering
     render();
