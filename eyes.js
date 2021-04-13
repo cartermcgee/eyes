@@ -1,5 +1,6 @@
+const EYEBALL_SPACING = 3.5;
 let NUM_COLS = 5;
-let NUM_ROWS = 10;
+let NUM_ROWS = 5;
 
 let canvas;
 let context;
@@ -41,7 +42,7 @@ function initialize(){
 
     // left mouse click makes less eyes appear
     window.addEventListener("click", e => {
-        if(e.button == 0  && NUM_ROWS != 6 && NUM_COLS != 3){
+        if(e.button == 0  && NUM_ROWS != 3 && NUM_COLS != 3){
             NUM_ROWS -= 2;
             NUM_COLS--;
         }
@@ -51,7 +52,7 @@ function initialize(){
 
     // right mouse click makes more eyes appear
     document.addEventListener('contextmenu', e => {
-        if(NUM_ROWS != 30 && NUM_COLS != 15){
+        if(NUM_ROWS != 20 && NUM_COLS != 20){
             NUM_ROWS += 2;
             NUM_COLS++;
         }
@@ -60,6 +61,7 @@ function initialize(){
 
     });
 
+    // mobile support
     document.addEventListener('touchstart', e => {
         mouseLoc = {
             x: e.touches[0].clientX,
@@ -79,6 +81,7 @@ function initialize(){
         e.preventDefault();
         
     }, {passive: false});
+
 
     // start rendering
     render();
