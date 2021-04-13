@@ -1,4 +1,3 @@
-const EYEBALL_SPACING = 3.5;
 let NUM_COLS = 5;
 let NUM_ROWS = 5;
 
