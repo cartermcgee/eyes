@@ -99,7 +99,7 @@ function render(){
     for(let i = 0; i < NUM_ROWS; i++){
         for(let j = 0; j < NUM_COLS; j++){
             center = {
-                x: j * step_x + size * 1.5, 
+                x: j * step_x + size * 2, 
                 y: i * step_y + step_y / 2,
             };
             drawEyes(center, size, size*sin_pi_4);
