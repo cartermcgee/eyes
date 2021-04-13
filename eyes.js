@@ -23,7 +23,7 @@ function initialize(){
     };
 
     // add a listener to the mouse movement
-    window.addEventListener("mousemove", function(e){
+    window.addEventListener("mousemove", e => {
         if(e.offsetX) {
             mouseLoc = {
                 x: e.offsetX,
@@ -40,7 +40,7 @@ function initialize(){
     });
 
     // left mouse click makes less eyes appear
-    window.addEventListener("click", function(e){
+    window.addEventListener("click", e => {
         if(e.button == 0  && NUM_ROWS != 6 && NUM_COLS != 3){
             NUM_ROWS -= 2;
             NUM_COLS--;
@@ -49,13 +49,29 @@ function initialize(){
     });
 
     // right mouse click makes more eyes appear
-    document.addEventListener('contextmenu', event => {
+    document.addEventListener('contextmenu', e => {
         if(NUM_ROWS != 30 && NUM_COLS != 15){
             NUM_ROWS += 2;
             NUM_COLS++;
         }
         render();
-        event.preventDefault();
+        e.preventDefault();
+    });
+
+    document.addEventListener('touchstart', e => {
+        mouseLoc = {
+            x: e.touches[0].clientX,
+            y: e.touches[0].clientY,
+        }
+        e.preventDefault();
+    });
+
+    document.addEventListener('touchmove', e => {
+        mouseLoc = {
+            x: e.touches[0].clientX,
+            y: e.touches[0].clientY,
+        }
+        e.preventDefault();
     });
 
     // start rendering
