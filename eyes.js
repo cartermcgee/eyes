@@ -108,7 +108,7 @@ function render(){
     }
 }
 
-// draws an eye to the screen
+// draws a pair of eyes to the screen
 function drawEyes(center, size, displacement){
     context.beginPath();
     center.y = center.y + displacement;
